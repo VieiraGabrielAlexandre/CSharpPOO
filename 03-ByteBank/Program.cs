@@ -28,6 +28,10 @@ namespace _03_ByteBank
             contaDoGabriel.saldo = 1000;
 
             Console.WriteLine(contaVinculada.saldo);
+            if (contaDoGabriel.saldo >= 100)
+            {
+                contaDoGabriel.saldo -= 100;
+            }
             Console.ReadLine();
         }
     }
