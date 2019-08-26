@@ -14,9 +14,22 @@ namespace _06_ByteBank
 
             Console.WriteLine("Digite o saldo da conta: ");
             double valor = Convert.ToInt32(Console.ReadLine());
-            conta.SetSaldo (valor);
+            conta.Saldo = valor;
+            Console.WriteLine(conta.Saldo);
 
-            Console.WriteLine(conta.GetSaldo());
+            Cliente cliente = new Cliente();
+            Console.WriteLine("Digite o nome:");
+            cliente.Nome = Console.ReadLine();
+            Console.WriteLine("Digite o CPF:");
+            cliente.CPF = Console.ReadLine();
+            Console.WriteLine("Digite a Profissao");
+            cliente.Profissao = Console.ReadLine();
+
+            conta.Titular = cliente;
+
+            Console.WriteLine(conta.Titular.Nome);
+            Console.WriteLine(conta.Titular.CPF);
+            Console.WriteLine(conta.Titular.Profissao); 
 
             Console.ReadLine();
         }
