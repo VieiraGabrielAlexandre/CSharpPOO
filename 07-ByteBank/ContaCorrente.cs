@@ -1,11 +1,31 @@
-﻿using _06_ByteBank;
+﻿using _07_ByteBank;
 
 class ContaCorrente
 {
 
     public Cliente Titular { get; set; }
 
-    public int Agencia { get; set; }
+    private int _agencia;
+
+    public static int TotalContasCriadas { get; private set; }
+
+    public int Agencia {
+        get
+        {
+            return _agencia;
+        }
+        set
+        {
+            if (value <= 0)
+            {
+                return;
+            }
+            else
+            {
+                _agencia = value;   
+            }
+        }
+    }
 
     public int Numero { get; set; }
 
@@ -25,6 +45,14 @@ class ContaCorrente
             }
             _saldo = value;
         }
+    }
+
+    public ContaCorrente (int numero, int agencia)
+    {
+        Agencia = agencia;
+        Numero = numero;
+
+        TotalContasCriadas++;
     }
 
     public bool Sacar(double valor)
